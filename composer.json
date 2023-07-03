@@ -3,7 +3,7 @@
     "description": "Convertir números a letras",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "autoload": {
         "psr-4": {
             "Lopezsoft\\NumbersToLetters\\": "src/"
@@ -17,6 +17,6 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": ">=7.0"
+        "php": ">=8.0"
     }
 }

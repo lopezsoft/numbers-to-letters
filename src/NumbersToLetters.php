@@ -97,31 +97,19 @@ class NumbersToLetters
         }
 
         if($A2 > 0){
-            switch ($A2) {
-                case 1:
-                    $B2     = $this->ThousANDString.$this->NumberSPACE;
-                    break;
-                case 21:
-                    $B2     = $this->TENDS[212].$this->NumberSPACE.$this->ThousANDString.$this->NumberSPACE;
-                    break;
-                default:
-                    $B2     = $this->readValues($A2).$this->NumberSPACE.$this->ThousANDString.$this->NumberSPACE;
-                    break;
-            }
+            $B2 = match ($A2) {
+                1 => $this->ThousANDString . $this->NumberSPACE,
+                21 => $this->TENDS[212] . $this->NumberSPACE . $this->ThousANDString . $this->NumberSPACE,
+                default => $this->readValues($A2) . $this->NumberSPACE . $this->ThousANDString . $this->NumberSPACE,
+            };
         }
 
         if($A3 > 0){
-            switch ($A3) {
-                case 1:
-                    $B3     = $this->getUnits(12).$this->NumberSPACE.$this->MillionString;
-                    break;
-                case 21:
-                    $B3     = $this->TENDS[212].$this->NumberSPACE.$this->MillionsString;
-                    break;
-                default:
-                    $B3     = $this->readValues($A3).$this->NumberSPACE.$this->MillionsString;
-                    break;
-            }
+            $B3 = match ($A3) {
+                1       => $this->getUnits(12) . $this->NumberSPACE . $this->MillionString,
+                21      => $this->TENDS[212] . $this->NumberSPACE . $this->MillionsString,
+                default => $this->readValues($A3) . $this->NumberSPACE . $this->MillionsString,
+            };
 
             if($A2 == 0 && $A1 == 0){
                 $B3 = $B3.$this->NumberFrom;
@@ -131,17 +119,11 @@ class NumbersToLetters
         }
 
         if($A4 > 0){
-            switch ($A4) {
-                case 1:
-                    $B4     = $this->ThousANDString.$this->NumberSPACE.$this->MillionsString;
-                    break;
-                case 21:
-                    $B4     = $this->TENDS[212].$this->NumberSPACE.$this->ThousANDString.$this->NumberSPACE.$this->MillionsString;
-                    break;
-                default:
-                    $B4     = $this->readValues($A4).$this->NumberSPACE.$this->ThousANDString.$this->NumberSPACE.$this->MillionsString;
-                    break;
-            }
+            $B4 = match ($A4) {
+                1       => $this->ThousANDString . $this->NumberSPACE . $this->MillionsString,
+                21      => $this->TENDS[212] . $this->NumberSPACE . $this->ThousANDString . $this->NumberSPACE . $this->MillionsString,
+                default => $this->readValues($A4) . $this->NumberSPACE . $this->ThousANDString . $this->NumberSPACE . $this->MillionsString,
+            };
             if($A2 == 0 && $A1 == 0 && $A3 == 0){
                 $B4 = $B4.$this->NumberFrom;
             }else{
@@ -176,8 +158,6 @@ class NumbersToLetters
      */
     private function getTens(int $NValue = 0): string
     {
-        $NDesc  = 0;
-        $NUnit  = 0;
         $Result = '';
         if($NValue == 0) return $Result;
         $NDesc = $NValue;
@@ -205,9 +185,6 @@ class NumbersToLetters
     */
     private function getHundreds (int $NValue = 0): string
     {
-        $NCent = 0;
-        $NDesc = 0;
-        $NUnit = 0;
         $Result= '';
         if ($NValue == 0) return $Result;
         $NCent = intval(substr(strval($NValue),0,1)); // Centena
