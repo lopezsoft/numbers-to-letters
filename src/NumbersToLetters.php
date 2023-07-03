@@ -1,4 +1,5 @@
 <?php
+namespace Lopezsoft\NumbersToLetters;
 class NumbersToLetters
 {
     /***************** Numbers *********************/
