@@ -1,0 +1,22 @@
+{
+    "name": "lopezsoft/numbers-to-letters",
+    "description": "Convertir números a letras",
+    "type": "library",
+    "license": "MIT",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "Lopezsoft\\NumbersToLetters\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lewis Lopez Gomez",
+            "email": "lopezsoft.com@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0"
+    }
+}
